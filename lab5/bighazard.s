@@ -3,9 +3,9 @@
 
 # this test is kinda long, so you need to run your simulation for at least 60 cycles
 # The first 4 tests (addresses 0-12) need the first three lines as setup
-# The last test (addresses 20) needs the second last one as setup (address 10)
+# Test 6 (addresses 20) needs test 5 one as setup (address 16)
 # Expected output:
-# mem: {0:10, 4:10, 8:10, 12:10, 16:255, 20:256}
+# mem: {0:10, 4:10, 8:10, 12:10, 16:255, 20:256, 24:50}
 
 .text
 main:
@@ -67,3 +67,9 @@ main:
 	lw $t1, 0($t0)
 	addi $t1, $t1, 1
 	sw $t1, 20($zero)
+	nop
+	nop
+
+	addi $zero, $zero, 100
+	addi $t0, $zero, 50
+	sw $t0, 24($zero)
